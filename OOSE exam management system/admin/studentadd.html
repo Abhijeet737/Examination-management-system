@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html><head>
+<title>add student details</title>
+</head>
+
+<body bgcolor="lightblue">
+<center>
+<table border="1" cellspacing="5" bgcolor="white">
+    <caption><b>ADD STUDENT DETAILS</b></caption>
+    <tr>
+        <th rowspan="2">Name</th>
+        <th colspan="5">Details</th>
+
+    </tr>
+    <tr>
+        <th>Date of Admission</th>
+        <th>Guardian Name</th>
+        <th>Address</th>
+        <th>Contact</th>
+    </tr>
+    <tr>
+        <td><input type="text" id="aname"></td>
+        <td><input type="text" id="am"></td>
+        <td><input type="text" id="aj"></td>
+        <td><input type="text" id="ad"></td>
+        <td><input type="text" id="an"></td>
+    </tr>
+    <tr>
+        <th colspan="5" height="30">
+        <input type="submit" id="submit" value="Add To Table" onclick="Sub()"></th>
+        <!-- <button type="submit" id="submit" class="btn btn-primary">Add to Table</button> -->
+    </tr>    
+</table>
+<br>
+</center>
+<script type="module">
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+import { getDatabase,set,ref,push,child} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyDLefinuAYDP_zTdecb3rC5Jp_QVFhBF10",
+authDomain: "ems-project-729e2.firebaseapp.com",
+projectId: "ems-project-729e2",
+storageBucket: "ems-project-729e2.appspot.com",
+messagingSenderId: "688002010437",
+appId: "1:688002010437:web:8ec5dc05d16e24e8b5422c"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+submit.addEventListener('click',(e) => {
+var name = document.getElementById('aname').value
+var doa = document.getElementById('am').value
+var gname = document.getElementById('aj').value
+var address = document.getElementById('ad').value
+var contact = document.getElementById('an').value
+
+const userId = push(child(ref(database), 'users')).key;
+set(ref(database, 'users/' + userId), {
+name: name,
+doa: doa,
+gname: gname,
+address: address,
+contact: contact
+});
+
+alert('Student Added!');
+});
+</script>
+
+</body>
+</html>

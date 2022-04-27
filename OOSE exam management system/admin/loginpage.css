@@ -1,0 +1,116 @@
+body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-color:#118d87ba;  
+    font-family: 'Georgia';  
+}  
+.login{  
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: #351246;  
+        border-radius: 15px ;  
+          
+}  
+h1{
+    text-align: center;
+    color: #0a0407;  
+
+}
+    
+h2{  
+    text-align: center;  
+    color: #0a0407;   
+   
+    padding: 20px;  
+}  
+label{  
+    color: #62a59f;  
+    font-size: 17px;  
+}  
+#Uname{  
+    width: 367px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 367px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#myr{
+    width: 376px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;   
+}
+#log{  
+    width: 300px;  
+    height: 30px;  
+    border: none;
+    text-align: center;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: #03473b;    
+  
+  
+}  
+#res{
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: #03473b;     
+}
+span{  
+    color: #62a59f; 
+    font-size: 17px;  
+}  
+a{  
+    float: right;  
+    background-color: grey;  
+}  
+p{
+    text-align: center;
+    color: #08ffd1; 
+}
+#button_container {
+    width: 100%;
+    height: 10%;
+
+    /*background-image: linear-gradient(80deg, #FFBE0B, #FB5607 50%, #FF006E 50%, #8338EC);*/
+    color: white;
+
+    float: left;
+
+    margin-top: 5px;
+}
+
+#button_container button {
+    width: 50%;
+    height: 100%;
+    float: left;
+
+    color: #03473b;
+
+    font-family: Montserrat;
+    letter-spacing: 1px;
+    font-weight: 900;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

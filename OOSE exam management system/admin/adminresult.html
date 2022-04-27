@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html><head>
+<title>admin result</title>
+</head>
+
+<body bgcolor="lightblue">
+<center>
+<table border="1" cellspacing="5" bgcolor="white">
+    <caption><b>Input Marks</b></caption>
+    <tr>
+        <th rowspan="2">Name</th>
+        <th colspan="5">Score</th>
+
+    </tr>
+    <tr>
+        <th>DSA</th>
+        <th>ADA</th>
+        <th>OOSE</th>
+        <th>DBMS</th>
+        <th>ML</th>
+    </tr>
+    <tr>
+        <td><input type="text" id="aname"></td>
+        <td><input type="text" id="am"></td>
+        <td><input type="text" id="aj"></td>
+        <td><input type="text" id="ad"></td>
+        <td><input type="text" id="an"></td>
+        <td><input type="text" id="ax"></td>
+    </tr>
+    <tr>
+        <th colspan="5" height="30">
+        <input type="submit" id="submit" value="Add To Table" onclick="Sub()"></th>
+        <!-- <button type="submit" id="submit" class="btn btn-primary">Add to Table</button> -->
+    </tr>    
+</table>
+<br>
+<table border="1" cellspacing="5" bgcolor="white" 
+       height="100" width="500" cellpadding="5" id="TableScore">
+    <caption><b>Student Data</b></caption>
+    <tr>
+        <th width="180">Name</th>
+        <th>Total</th>
+        <th>Average</th>
+        <th>Pass Or Fail</th>
+    </tr>
+      
+</table>
+</center>
+<script type="module">
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+import { getDatabase,set,ref,push,child} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyDLefinuAYDP_zTdecb3rC5Jp_QVFhBF10",
+authDomain: "ems-project-729e2.firebaseapp.com",
+projectId: "ems-project-729e2",
+storageBucket: "ems-project-729e2.appspot.com",
+messagingSenderId: "688002010437",
+appId: "1:688002010437:web:8ec5dc05d16e24e8b5422c"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+submit.addEventListener('click',(e) => {
+var name = document.getElementById('aname').value
+var dsa = document.getElementById('am').value
+var oose = document.getElementById('aj').value
+var ada = document.getElementById('ad').value
+var dbms = document.getElementById('an').value
+var ml = document.getElementById('ax').value
+
+const userId = push(child(ref(database), 'users')).key;
+set(ref(database, 'users/' + userId), {
+name: name,
+dsa: dsa,
+oose: oose,
+ada: ada,
+dbms: dbms,
+ml: ml
+});
+
+alert('Result Added!');
+});
+</script>
+
+<script type="text/javascript">
+    function Sub(){
+        var n, k, r, e, v,x, sum, avg;
+        n=(document.getElementById('aname').value);
+        k=parseFloat(document.getElementById('am').value);
+        r=parseFloat(document.getElementById('aj').value);
+        e=parseFloat(document.getElementById('ad').value);
+        v=parseFloat(document.getElementById('an').value);
+        x=parseFloat(document.getElementById('ax').value);
+        // Calculating Total
+        sum=k+r+e+v+x;
+        avg=sum/5;
+        // Display on Student Data
+        var newTable = document.getElementById('TableScore');
+        var row = newTable.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(0);
+        var cell3 = row.insertCell(0);
+        var cell4 = row.insertCell(0);
+       
+
+        cell4.innerHTML= n;
+        cell3.innerHTML=sum;
+        cell2.innerHTML = avg;
+
+        if(k>=34){
+            cell1.innerHTML="<font color=green>pass</font>";
+        }else{
+            cell1.innerHTML="<font color=green>fail</font>";
+        }
+        if(r>=34){
+            cell1.innerHTML="<font color=green>pass</font>";
+        }else{
+            cell1.innerHTML="<font color=green>fail</font>";
+        }
+        if(v>=34){
+            cell1.innerHTML="<font color=green>pass</font>";
+        }else{
+            cell1.innerHTML="<font color=green>fail</font>";
+        }
+        if(e>=34){
+            cell1.innerHTML="<font color=green>pass</font>";
+        }else{
+            cell1.innerHTML="<font color=green>fail</font>";
+        }
+        if(x>=34){
+            cell1.innerHTML="<font color=green>pass</font>";
+        }else{
+            cell1.innerHTML="<font color=green>fail</font>";
+        }
+    }
+</script>
+
+</body>
+</html>

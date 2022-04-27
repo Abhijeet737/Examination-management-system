@@ -1,0 +1,92 @@
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Login Form</title>    
+    <link rel="stylesheet"  href="loginpage.css">    
+</head>    
+<body>    
+    <h1>EXAMINATION PORTAL</h1>
+    <h2>LOGIN-PAGE</h2>   
+    <div class="login">    
+    <form id="login" method="get" action="backend.php">    
+        <label><b>User ID</b></label><br>  
+        <input type="text" name="Uname" id="Uname" placeholder="UserID">    
+        <br><br>    
+        <label><b>Password</b></label>    
+        <input type="Password" name="Pass" id="Pass" placeholder="Password">    
+        <br><br>  
+        <label><b>Role</label></b><br> 
+        <select name="My Role" id="myr" onchange="location = this.value" >
+            <option value="none"></option>
+            <option value="admin.html">ADMIN</option>
+            <option value="C:\Stuff\abhi\College\Sem 4\Projects\OOSE exam management system\moderator\mdashboard.html">MODERATOR</option>
+            <option value="C:\Stuff\abhi\College\Sem 4\Projects\OOSE exam management system\student\sdashb.html">STUDENT</option>
+        </select>
+        <br><br>
+        <div id="button_container">
+        <button>Login</button>
+        <button onclick="forgotpassword()">Forgot password</button>
+    </div>
+    <br><br>
+        <input type="checkbox" id="check">   
+        <span><b>Save password</b></span>  
+        <br><br>  
+    </form>     
+</div> 
+<script>
+    window.goplaces = function(){
+        var input = document.getElementById("").value;
+        switch(input){
+            case '':
+        }
+    }
+
+</script> 
+<!-- <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js"></script>
+ -->
+<!-- <script src="loginpage.js"></script> -->
+
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDLefinuAYDP_zTdecb3rC5Jp_QVFhBF10",
+    authDomain: "ems-project-729e2.firebaseapp.com",
+    projectId: "ems-project-729e2",
+    storageBucket: "ems-project-729e2.appspot.com",
+    messagingSenderId: "688002010437",
+    appId: "1:688002010437:web:8ec5dc05d16e24e8b5422c"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  var email = document.getElementById('Uname').value
+  var password = document.getElementById('Pass').value
+  var role = document.getElementById('myr').value
+
+  createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+    alert('user created');
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+    alert('errorMessage');
+  });
+</script>
+</html>     
